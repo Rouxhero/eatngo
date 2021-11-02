@@ -1,1 +1,1 @@
-pgsql:host=127.0.0.1;user=root;password=AdminPass; 
+mysql:host=51.210.137.135;user=root;password=uaj7hh1t; 
