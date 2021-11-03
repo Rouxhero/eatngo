@@ -8,7 +8,6 @@ require_once('lib/initDataLayer.php');
 
 try{
   $resto = $data->getRest();
-  echo $resto;
   produceResult($resto);
 }
 catch (PDOException $e){

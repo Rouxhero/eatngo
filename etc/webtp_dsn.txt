@@ -1,1 +1,1 @@
-mysql:host=51.210.137.135;user=root;password=uaj7hh1t; 
+mysql:host=localhost;dbname=resto_u;user=root;password=AdminPass; 

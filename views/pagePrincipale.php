@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="style_td6.css" />
     <script src="js/fetchUtils.js"></script>
     <script src="js/resto.js"></script>
-    <script src="js/carte.js"></script>
+    <!-- <script src="js/carte.js"></script> -->
     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -22,36 +22,14 @@
 <body>
 <header>
 <h1>
-Communes de la MEL
+Resto U
 </h1>
 </header>
 <section id="main">
   <div id="choix">
-    <form id="form_communes" action="">
-      <fieldset>
-        <legend>Choix des communes</legend>
-        <label>Territoire :
-          <select name="territoire">
-              <option value=""
-                      data-min_lat="50.499" data-min_lon="2.789"
-                      data-max_lat="50.794" data-max_lon="3.272"
-              >
-                Tous
-              </option>
-              <!-- les autres options seront crées en JS -->
-          </select>
-        </label>
-        </fieldset>
-      <button type="submit">Afficher la liste</button>
-    </form>
   </div>
   <div id='carte'></div>
-  <ul id="liste_communes">
-</ul>
 
-  
-  <div id="details"></div>
-</section>
 
 <footer>
 </footer>

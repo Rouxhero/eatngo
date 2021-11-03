@@ -8,39 +8,29 @@ class DataLayer {
 	private  $conn = NULL; // connexion de type PDO   compat PHP<=7.3
 	
 	/**
-	 * @param $DSNFileName : file containing DSN 
-	 */
+	* @param $DSNFileName : file containing DSN 
+	*/
 	function __construct(string $DSNFileName){
-		//$dsn = "uri:$DSNFileName";
-		$dsn = 'mysql:host=51.210.137.135;';
-		$user = 'root';
-		$password = 'uaj7hh1t';
-
-		$dbh = new PDO($dsn, $user, $password);
-
+		$dsn = "uri:$DSNFileName";
+		try {
+			$this->conn = new PDO($dsn,"root","AdminPass");
+		}
+		catch( PDOException $Exception ) {
+		    // Note The Typecast To An Integer!
+		  	echo $Exception->getMessage( ) , (int)$Exception->getCode( );
+		}
 		// paramètres de fonctionnement de PDO :
 		$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // déclenchement d'exception en cas d'erreur
 		$this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC); // fetch renvoie une table associative
 		// réglage d'un schéma par défaut :
-		$this->conn->query('set search_path=eatngo, authent');
 	}
     
-	/**
-	 * Liste des territoires
-	 * @return array tableau de territoires
-	 * chaque territoire comporte les clés :
-		* id (identifiant, entier positif),
-		* nom (chaîne),
-		* min_lat (latitude minimale, flottant),
-		* min_lon (longitude minimale, flottant),
-		* max_lat, max_lon
-	 */
-	function getRest(): array {
-		$sql = "select * from resto ";
-		$stmt = $this->connexion->prepare($sql);
+
+	function getRest() {
+		$sql = "select * from resto join horaires WHERE resto.id = horaires.id ";
+		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
 		$res= $stmt->fetchAll();
-		echo $res;
 		return $res;
 	}
 }
