@@ -10,6 +10,10 @@ function initForm(){
 }
 
 
+function transphormeDate(date){
+    return date.substring(0, 2)+"h"+date.substring(3, 5)
+}
+
 function processAnswer(answer){
   if (answer.status == "ok"){
     return answer.result;
@@ -23,17 +27,27 @@ function makeOptions(tab){
   for (let resto of tab){  
     let option = document.createElement('div');
     option.className ="resto";
+    let gg = document.createElement('div');
     let name = document.createElement('p');
     name.textContent = resto.nom;
-    name.className = "Name";
-    option.append(name)
+    name.className = "headname"
+    gg.className = "Name";
+    gg.append(name)
     name = document.createElement('p');
-    name.textContent = resto.ouverture+resto.fermeture;
-    name.className = "time";
-    option.append(name)
+    name.textContent = transphormeDate(resto.ouverture)+'-'+transphormeDate(resto.fermeture);
+    gg.append(name);
+    option.append(gg);
     name = document.createElement('div');
-    name.className = "status-"+resto.status;
-    option.append(name)
+    gg = document.createElement('div');
+    gg.className = "litlebox"
+    if (resto.status=="1"){
+      name.className = "status open";
+    }else{
+       name.className = "status close";
+
+    }
+    gg.append(name);
+    option.append(gg);
     let affluance = parseInt(resto.afluence);
     let opt;
     name = document.createElement('div');
@@ -42,9 +56,9 @@ function makeOptions(tab){
     for (i=0;i<5;i++){
       opt = document.createElement('div');
       if (i< affluance){
-        opt.className = "affl-1";
+        opt.className = "yes";
       }else{
-        opt.className = "affl-0";
+        opt.className = "no";
       }
       name.append(opt);
     }

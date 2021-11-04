@@ -1,12 +1,18 @@
+@font-face {
+    font-family: 'HeadName';
+    src: url('./etc/Philosopher-Regular.ttf');
+}
+
 html,body {
   padding : 0;
   margin  : 0;
   font-family : arial, sans-serif;
+  background-color : rgb(110,110,110);  
 }
 header{
   height : 40px;
-  background-color : #eee;
-  border-bottom : solid 1pt grey;
+  background-color : darkgrey;
+  border-left : 10px groove rgb(45,151,149);
   margin : 0;
   margin-bottom : 10px;
   padding : 2pt;
@@ -19,39 +25,11 @@ section#main{
   margin : 0; padding : 0;
 }
 #choix {
-  position : absolute;
+  justify-content : space-around; 
+  display : flex;
   top : 0; left : 0;
   margin : 0;
-  background : lightyellow;
-  padding : 15px;
-  max-height : 300px;
-  max-width : 250px;
-}
-#carte {
-  position : absolute;
-  top : 130px; left : 0px;
-  width : 280px;
-  height : 300px;
-}
-
-ul#liste_communes {
-  position : absolute;
-  top: 0px; left : 280px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-ul#liste_communes>li{
-  list-style: none;
-}
-ul#liste_communes>li:hover{
-  background-color : #eee;  
-}
-#details{
-  position : absolute;
-  top : 450px; left: 0; right : 0;
-  min-height : 300px;
+  flex-wrap:  wrap;
 }
 footer {
   margin-top : 20px;
@@ -63,9 +41,46 @@ img.avatar {
   margin-top : 15px;
   margin-right : 30px;
 }
-#details div.map{
-  position : absolute;
-  right : 0; bottom : 0;
-  width : 500px;
-  height : 300px;
+
+.resto{
+  justify-content : space-around; 
+  margin: 50px;
+  padding : 40px;
+  display : flex;
+  border-left: 2px groove rgb(45,151,149);
+  width: 75%;
+  height: 25%;
+  background : rgb(70,70,70);   
+}
+.Name{
+  flex : 2;
+  padding-left : 5%;
+  font-size: small;
+  justify-content : center;
+  text-align: center;
+  width :50%;
+}
+.headname{
+    font-size: x-large;
+    font-family :'HeadName',"Comic Sans MS";
+    color: rgb(120,200,250);
+}
+.litlebox{
+  flex :1;
+  padding-left : 5%;
+  justify-content : content;
+  width :25%;
+}
+.status{    
+  transform : scale(0.5);
+  width: 75px;
+  height: 75px;
+  border: 1px solid grey;
+  border-radius : 100%;
+}
+.close{
+  background-color: red;
+}
+.open{
+  background-color: green;
 }
