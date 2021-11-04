@@ -13,6 +13,16 @@ function initForm(){
 function transphormeDate(date){
     return date.substring(0, 2)+"h"+date.substring(3, 5)
 }
+function checkDate(resto){
+  let d = new Date();
+  let hour =  d.getHours();
+  let min  =  d.getMinutes();
+  let minRO = parseInt(resto.ouverture.substring(3, 5));
+  let minRF = parseInt(resto.fermeture.substring(3, 5));
+  let hourRO = parseInt(resto.ouverture.substring(0, 2));
+  let hourRF = parseInt(resto.fermeture.substring(0, 2));
+  return hour>=hourRO&&hour<=hourRF&&min>=minRO&&min<=minRF
+}
 
 function processAnswer(answer){
   if (answer.status == "ok"){
@@ -40,10 +50,16 @@ function makeOptions(tab){
     gg = document.createElement('div');
     name = document.createElement('div');
     gg.className = "litlebox"
-    if (resto.status=="1"){
-      name.className = "status open";
+    let status = false
+    if (checkDate(resto)){
+      if (resto.status=="1"){
+        name.className = "status open";
+        status = true
+      }else{
+         name.className = "status close";
+      }
     }else{
-       name.className = "status close";
+      name.className = "status close";
     }
     gg.append(name);
     let affluance = parseInt(resto.afluence);
@@ -53,7 +69,7 @@ function makeOptions(tab){
     let i;
     for (i=0;i<5;i++){
       opt = document.createElement('img');
-      if (i< affluance){
+      if (i< affluance&&status){
         opt.src = "./img/playerFace.png";
       }else{
         opt.src = "./img/playerFace_outline.png";
