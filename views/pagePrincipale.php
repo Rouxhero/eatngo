@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
   <head>
     <meta charset="UTF-8"/>
-    <title>Communes de la MEL</title>
+    <title>Eat&Go</title>
     <link rel="stylesheet" type="text/css" href="style_td6.css" />
     <script src="js/fetchUtils.js"></script>
     <script src="js/resto.js"></script>
