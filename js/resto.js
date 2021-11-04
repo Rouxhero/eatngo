@@ -37,32 +37,31 @@ function makeOptions(tab){
     name.textContent = transphormeDate(resto.ouverture)+'-'+transphormeDate(resto.fermeture);
     gg.append(name);
     option.append(gg);
-    name = document.createElement('div');
     gg = document.createElement('div');
+    name = document.createElement('div');
     gg.className = "litlebox"
     if (resto.status=="1"){
       name.className = "status open";
     }else{
        name.className = "status close";
-
     }
     gg.append(name);
-    option.append(gg);
     let affluance = parseInt(resto.afluence);
     let opt;
     name = document.createElement('div');
     name.className = "affl";
     let i;
     for (i=0;i<5;i++){
-      opt = document.createElement('div');
+      opt = document.createElement('img');
       if (i< affluance){
-        opt.className = "yes";
+        opt.src = "./img/playerFace.png";
       }else{
-        opt.className = "no";
+        opt.src = "./img/playerFace_outline.png";
       }
       name.append(opt);
     }
-    option.append(name)
+    gg.append(name);
+    option.append(gg);
     data.append(option);
   }
 }

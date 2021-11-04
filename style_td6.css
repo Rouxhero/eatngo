@@ -7,11 +7,12 @@ html,body {
   padding : 0;
   margin  : 0;
   font-family : arial, sans-serif;
-  background-color : rgb(110,110,110);  
+  background-color : rgb(32,33,36);  
 }
 header{
   height : 40px;
-  background-color : darkgrey;
+  background-color : rgb(48,52,67);
+  color: rgb(255,230,230);
   border-left : 10px groove rgb(45,151,149);
   margin : 0;
   margin-bottom : 10px;
@@ -27,7 +28,6 @@ section#main{
 #choix {
   justify-content : space-around; 
   display : flex;
-  top : 0; left : 0;
   margin : 0;
   flex-wrap:  wrap;
 }
@@ -44,16 +44,16 @@ img.avatar {
 
 .resto{
   justify-content : space-around; 
-  margin: 50px;
+  margin: 25px;
   padding : 40px;
   display : flex;
-  border-left: 2px groove rgb(45,151,149);
+  border-left: 5px groove rgb(45,151,149);
   width: 75%;
   height: 25%;
   background : rgb(70,70,70);   
+  border-radius : 5px;
 }
 .Name{
-  flex : 2;
   padding-left : 5%;
   font-size: small;
   justify-content : center;
@@ -61,14 +61,15 @@ img.avatar {
   width :50%;
 }
 .headname{
-    font-size: x-large;
+    font-size: xx-large;
     font-family :'HeadName',"Comic Sans MS";
     color: rgb(120,200,250);
 }
 .litlebox{
-  flex :1;
   padding-left : 5%;
-  justify-content : content;
+  display : flex;
+  flex-direction: column;
+  justify-content : center;
   width :25%;
 }
 .status{    
@@ -83,4 +84,8 @@ img.avatar {
 }
 .open{
   background-color: green;
+}
+img{
+  width: 35px;
+  height: 35px;
 }
